@@ -29,12 +29,6 @@ jobs:
     - name: Install GitHub CLI
       run: sudo apt-get install -y gh
 
-    - name: Authenticate with GitHub CLI
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        echo $GITHUB_TOKEN | gh auth login --with-token
-
     - name: Upload Linux binary
       run: gh release upload ${{ github.event.release.tag_name }} dist/memkill-linux-amd64 --clobber
       env:
