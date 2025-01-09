@@ -22,8 +22,8 @@ jobs:
       run: |
         mkdir -p dist
         GOOS=linux GOARCH=amd64 go build -o dist/memkill-linux-amd64 main.go
-        GOOS=darwin GOARCH=amd64 go build -o dist/memkill-darwin-amd64 main.go
-        GOOS=windows GOARCH=amd64 go build -o dist/memkill-windows-amd64.exe main.go
+      # GOOS=darwin GOARCH=amd64 go build -o dist/memkill-darwin-amd64 main.go
+      # GOOS=windows GOARCH=amd64 go build -o dist/memkill-windows-amd64.exe main.go
 
     - name: Upload Linux binary
       uses: actions/upload-release-asset@v1
@@ -33,18 +33,18 @@ jobs:
         asset_name: memkill-linux-amd64
         asset_content_type: application/octet-stream
 
-    - name: Upload macOS binary
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: dist/memkill-darwin-amd64
-        asset_name: memkill-darwin-amd64
-        asset_content_type: application/octet-stream
+    # - name: Upload macOS binary
+    #   uses: actions/upload-release-asset@v1
+    #   with:
+    #     upload_url: ${{ github.event.release.upload_url }}
+    #     asset_path: dist/memkill-darwin-amd64
+    #     asset_name: memkill-darwin-amd64
+    #     asset_content_type: application/octet-stream
 
-    - name: Upload Windows binary
-      uses: actions/upload-release-asset@v1
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: dist/memkill-windows-amd64.exe
-        asset_name: memkill-windows-amd64.exe
-        asset_content_type: application/octet-stream
+    # - name: Upload Windows binary
+    #   uses: actions/upload-release-asset@v1
+    #   with:
+    #     upload_url: ${{ github.event.release.upload_url }}
+    #     asset_path: dist/memkill-windows-amd64.exe
+    #     asset_name: memkill-windows-amd64.exe
+    #     asset_content_type: application/octet-stream
