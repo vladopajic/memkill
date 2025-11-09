@@ -8,8 +8,32 @@ MemKill is a useful tool for managing processes with memory leak issues. It help
 
 ## Usage
 
+```sh
+# memkill {max_memory_usage_in_MB}
+memkill 100
 ```
-memkill 10 // kill any process which memory usage exceeds 10MB
+This command runs `memkill`, which will kill any process whose memory usage exceeds 100 MB. The program continues running and monitoring processes until it is manually terminated.
+
+## Running 
+### Run using go
+
+```sh
+# install using go
+go install github.com/vladopajic/memkill@latest
+
+# run
+$(go env GOPATH)/bin/memkill 100
+```
+
+### Run using downloaded binary
+```sh
+# install downloaded binary
+wget https://github.com/vladopajic/memkill/releases/download/v0.0.1/memkill-linux-amd64
+chmod +x memkill-linux-amd64
+sudo mv memkill-linux-amd64 /usr/local/bin/memkill
+
+# run
+memkill 100
 ```
 
 ## Binaries
